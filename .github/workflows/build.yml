@@ -46,15 +46,20 @@ jobs:
         with:
           path: artifacts
           merge-multiple: true
-      # pushes to main publish a rolling "latest" release; v* tags publish a versioned one
-      - name: Move rolling latest tag
-        if: github.ref == 'refs/heads/main'
+      # main pushes get an auto tag: major.minor from app/package.json, patch = run number
+      - name: Compute release tag
+        id: tag
         run: |
-          git tag -f latest
-          git push -f origin latest
+          if [[ "$GITHUB_REF" == refs/tags/v* ]]; then
+            echo "name=$GITHUB_REF_NAME" >> "$GITHUB_OUTPUT"
+          else
+            base=$(node -p "require('./app/package.json').version.split('.').slice(0,2).join('.')")
+            echo "name=v$base.$GITHUB_RUN_NUMBER" >> "$GITHUB_OUTPUT"
+          fi
       - uses: softprops/action-gh-release@v2
         with:
-          tag_name: ${{ startsWith(github.ref, 'refs/tags/v') && github.ref_name || 'latest' }}
-          name: ${{ startsWith(github.ref, 'refs/tags/v') && github.ref_name || 'Latest build' }}
-          prerelease: ${{ github.ref == 'refs/heads/main' }}
+          tag_name: ${{ steps.tag.outputs.name }}
+          target_commitish: ${{ github.sha }}
+          name: ${{ steps.tag.outputs.name }}
+          generate_release_notes: true
           files: artifacts/*
