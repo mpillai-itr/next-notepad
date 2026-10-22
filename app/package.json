@@ -5,19 +5,48 @@
   "main": "main.js",
   "scripts": {
     "build": "node build.mjs",
-    "start": "node build.mjs && electron ."
+    "start": "node build.mjs && electron .",
+    "dist": "node build.mjs && electron-builder"
   },
   "keywords": [],
   "author": "",
   "license": "GPL-3.0-or-later",
   "dependencies": {
-    "electron": "^44.7.0",
     "iconv-lite": "^0.7.3",
-    "jschardet": "^4.0.0",
-    "monaco-editor": "^0.57.0"
+    "jschardet": "^4.0.0"
   },
   "devDependencies": {
-    "esbuild": "^0.28.2"
+    "electron": "^44.7.0",
+    "electron-builder": "^26.0.0",
+    "esbuild": "^0.28.2",
+    "monaco-editor": "^0.57.0"
   },
-  "productName": "NextGenNote"
+  "productName": "NextGenNote",
+  "build": {
+    "appId": "com.personal.nextgennote",
+    "productName": "NextGenNote",
+    "directories": { "output": "release", "buildResources": "build" },
+    "files": [
+      "main.js",
+      "preload.js",
+      "index.html",
+      "style.css",
+      "menu.json",
+      "plugins.json",
+      "data/**",
+      "dist/**",
+      "!dist/**/*.map"
+    ],
+    "mac": {
+      "category": "public.app-category.developer-tools",
+      "icon": "build/icon.icns",
+      "target": [{ "target": "dmg", "arch": ["arm64", "x64"] }],
+      "identity": null
+    },
+    "win": {
+      "icon": "build/icon.svg.png",
+      "target": [{ "target": "nsis", "arch": ["x64"] }]
+    },
+    "nsis": { "oneClick": false, "allowToChangeInstallationDirectory": true }
+  }
 }
