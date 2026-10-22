@@ -1,0 +1,23 @@
+{
+  "name": "nextgennote",
+  "version": "0.1.0",
+  "description": "macOS rebuild of the Notepad++ feature set",
+  "main": "main.js",
+  "scripts": {
+    "build": "node build.mjs",
+    "start": "node build.mjs && electron ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "GPL-3.0-or-later",
+  "dependencies": {
+    "electron": "^44.7.0",
+    "iconv-lite": "^0.7.3",
+    "jschardet": "^4.0.0",
+    "monaco-editor": "^0.57.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2"
+  },
+  "productName": "NextGenNote"
+}

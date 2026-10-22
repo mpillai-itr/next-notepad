@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7bd88f"/><stop offset="1" stop-color="#1f8a4c"/></linearGradient></defs>
+  <rect x="64" y="64" width="896" height="896" rx="200" fill="url(#g)"/>
+  <rect x="224" y="200" width="576" height="624" rx="40" fill="#fff"/>
+  <g stroke="#cfd8d3" stroke-width="22" stroke-linecap="round"><line x1="288" y1="300" x2="736" y2="300"/><line x1="288" y1="390" x2="736" y2="390"/><line x1="288" y1="480" x2="620" y2="480"/></g>
+  <text x="512" y="760" font-family="Menlo, monospace" font-weight="700" font-size="250" text-anchor="middle" fill="#1f8a4c">NGN</text>
+</svg>

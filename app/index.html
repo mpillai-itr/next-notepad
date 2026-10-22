@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>NextGenNote</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' app: data: blob:; script-src 'self' app: blob: 'unsafe-eval'; style-src 'self' app: 'unsafe-inline'; font-src 'self' app: data:; img-src 'self' app: data: blob:; worker-src 'self' app: blob: data:; connect-src 'self' app: data: blob:">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="app://host/dist/renderer.css">
+<link rel="stylesheet" href="app://host/style.css">
+</head>
+<body class="theme-light">
+<div id="app">
+  <div id="toolbar"></div>
+  <div id="workspace">
+    <div id="panel-left" class="side-panel hidden"></div>
+    <div id="split-left" class="splitter-v hidden"></div>
+    <div id="center">
+      <div id="views">
+        <div class="view" id="view0"><div class="tabbar" id="tabs0"></div><div class="editor-host" id="ed0"></div></div>
+        <div id="split-views" class="splitter-v hidden"></div>
+        <div class="view hidden" id="view1"><div class="tabbar" id="tabs1"></div><div class="editor-host" id="ed1"></div></div>
+      </div>
+      <div id="split-bottom" class="splitter-h hidden"></div>
+      <div id="panel-bottom" class="bottom-panel hidden"></div>
+      <div id="incsearch" class="hidden"></div>
+    </div>
+    <div id="split-right" class="splitter-v hidden"></div>
+    <div id="panel-right" class="side-panel hidden"></div>
+  </div>
+  <div id="statusbar"></div>
+</div>
+<div id="dialogs"></div>
+<div id="toast"></div>
+<script src="app://host/dist/renderer.js"></script>
+</body>
+</html>

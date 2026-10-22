@@ -1,0 +1,7 @@
+[
+  { "name": "MIME Tools", "commands": ["Base64 Encode", "Base64 Encode with Padding", "Base64 Encode by line", "Base64 Decode", "Base64 Decode strict", "Base64 Decode by line", "-", "URL Encode", "URL Decode", "-", "Quoted-printable Encode", "Quoted-printable Decode", "-", "SAML Decode"] },
+  { "name": "Converter", "commands": ["ASCII -> HEX", "HEX -> ASCII", "-", "Conversion Panel..."] },
+  { "name": "NppExport", "commands": ["Export to RTF", "Export to HTML", "-", "Copy RTF to clipboard", "Copy HTML to clipboard", "Copy all formats to clipboard"] },
+  { "name": "JSON Viewer", "commands": ["Show JSON Viewer", "Format JSON", "Compress JSON"] },
+  { "name": "JsonTools", "commands": ["Pretty-print current JSON file", "Compress current JSON file", "Validate JSON", "Sort object keys", "Open tree viewer"] }
+]

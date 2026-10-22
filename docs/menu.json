@@ -1,0 +1,2870 @@
+[
+ {
+  "label": "File",
+  "children": [
+   {
+    "label": "New",
+    "id": 41001
+   },
+   {
+    "label": "Open...",
+    "id": 41002
+   },
+   {
+    "label": "Open Containing Folder",
+    "children": [
+     {
+      "label": "Explorer",
+      "id": 41019
+     },
+     {
+      "label": "cmd",
+      "id": 41020
+     },
+     {
+      "sep": true
+     },
+     {
+      "label": "Folder as Workspace",
+      "id": 41025
+     }
+    ]
+   },
+   {
+    "label": "Open in Default Viewer",
+    "id": 41023
+   },
+   {
+    "label": "Open Folder as Workspace...",
+    "id": 41022
+   },
+   {
+    "label": "Reload from Disk",
+    "id": 41014
+   },
+   {
+    "label": "Save",
+    "id": 41006
+   },
+   {
+    "label": "Save As...",
+    "id": 41008
+   },
+   {
+    "label": "Save a Copy As...",
+    "id": 41015
+   },
+   {
+    "label": "Save All",
+    "id": 41007
+   },
+   {
+    "label": "Rename...",
+    "id": 41017
+   },
+   {
+    "label": "Close",
+    "id": 41003
+   },
+   {
+    "label": "Close All",
+    "id": 41004
+   },
+   {
+    "label": "Close Multiple Documents",
+    "children": [
+     {
+      "label": "Close All but Active Document",
+      "id": 41005
+     },
+     {
+      "label": "Close All but Pinned Documents",
+      "id": 41026
+     },
+     {
+      "label": "Close All to the Left",
+      "id": 41009
+     },
+     {
+      "label": "Close All to the Right",
+      "id": 41018
+     },
+     {
+      "label": "Close All Unchanged",
+      "id": 41024
+     }
+    ]
+   },
+   {
+    "label": "Move to Recycle Bin",
+    "id": 41016
+   },
+   {
+    "sep": true
+   },
+   {
+    "label": "Load Session...",
+    "id": 41012
+   },
+   {
+    "label": "Save Session...",
+    "id": 41013
+   },
+   {
+    "sep": true
+   },
+   {
+    "label": "Print...",
+    "id": 41010
+   },
+   {
+    "label": "Print Now",
+    "id": 1001
+   },
+   {
+    "sep": true
+   },
+   {
+    "label": "Exit",
+    "id": 41011
+   }
+  ]
+ },
+ {
+  "label": "Edit",
+  "children": [
+   {
+    "label": "Undo",
+    "id": 42003
+   },
+   {
+    "label": "Redo",
+    "id": 42004
+   },
+   {
+    "sep": true
+   },
+   {
+    "label": "Cut",
+    "id": 42001
+   },
+   {
+    "label": "Copy",
+    "id": 42002
+   },
+   {
+    "label": "Paste",
+    "id": 42005
+   },
+   {
+    "label": "Delete",
+    "id": 42006
+   },
+   {
+    "label": "Select All",
+    "id": 42007
+   },
+   {
+    "label": "Begin/End Select",
+    "id": 42020
+   },
+   {
+    "label": "Begin/End Select in Column Mode",
+    "id": 42089
+   },
+   {
+    "sep": true
+   },
+   {
+    "label": "Insert",
+    "children": [
+     {
+      "label": "Date Time (short)",
+      "id": 42084
+     },
+     {
+      "label": "Date Time (long)",
+      "id": 42085
+     },
+     {
+      "label": "Date Time (customized)",
+      "id": 42086
+     }
+    ]
+   },
+   {
+    "label": "Copy to Clipboard",
+    "children": [
+     {
+      "label": "Copy Current Full File path",
+      "id": 42029
+     },
+     {
+      "label": "Copy Current Filename",
+      "id": 42030
+     },
+     {
+      "label": "Copy Current Dir. Path",
+      "id": 42031
+     },
+     {
+      "sep": true
+     },
+     {
+      "label": "Copy All Filenames",
+      "id": 42087
+     },
+     {
+      "label": "Copy All File Paths",
+      "id": 42088
+     }
+    ]
+   },
+   {
+    "label": "Indent",
+    "children": [
+     {
+      "label": "Increase Line Indent",
+      "id": 42008
+     },
+     {
+      "label": "Decrease Line Indent",
+      "id": 42009
+     }
+    ]
+   },
+   {
+    "label": "Convert Case to",
+    "children": [
+     {
+      "label": "UPPERCASE",
+      "id": 42016
+     },
+     {
+      "label": "lowercase",
+      "id": 42017
+     },
+     {
+      "label": "Proper Case",
+      "id": 42067
+     },
+     {
+      "label": "Proper Case (blend)",
+      "id": 42068
+     },
+     {
+      "label": "Sentence case",
+      "id": 42069
+     },
+     {
+      "label": "Sentence case (blend)",
+      "id": 42070
+     },
+     {
+      "label": "iNVERT cASE",
+      "id": 42071
+     },
+     {
+      "label": "ranDOm CasE",
+      "id": 42072
+     }
+    ]
+   },
+   {
+    "label": "Line Operations",
+    "children": [
+     {
+      "label": "Duplicate Current Line",
+      "id": 42010
+     },
+     {
+      "label": "Remove Duplicate Lines",
+      "id": 42079
+     },
+     {
+      "label": "Remove Consecutive Duplicate Lines",
+      "id": 42077
+     },
+     {
+      "label": "Split Lines",
+      "id": 42012
+     },
+     {
+      "label": "Join Lines",
+      "id": 42013
+     },
+     {
+      "label": "Move Up Current Line",
+      "id": 42014
+     },
+     {
+      "label": "Move Down Current Line",
+      "id": 42015
+     },
+     {
+      "label": "Remove Empty Lines",
+      "id": 42055
+     },
+     {
+      "label": "Remove Empty Lines (Containing Blank characters)",
+      "id": 42056
+     },
+     {
+      "label": "Insert Blank Line Above Current",
+      "id": 42057
+     },
+     {
+      "label": "Insert Blank Line Below Current",
+      "id": 42058
+     },
+     {
+      "label": "Reverse Line Order",
+      "id": 42083
+     },
+     {
+      "label": "Randomize Line Order",
+      "id": 42078
+     },
+     {
+      "sep": true
+     },
+     {
+      "label": "Sort Lines Lexicographically Ascending",
+      "id": 42059
+     },
+     {
+      "label": "Sort Lines Lex. Ascending Ignoring Case",
+      "id": 42080
+     },
+     {
+      "label": "Sort Lines In Locale Order Ascending",
+      "id": 42100
+     },
+     {
+      "label": "Sort Lines As Integers Ascending",
+      "id": 42061
+     },
+     {
+      "label": "Sort Lines As Decimals (Comma) Ascending",
+      "id": 42063
+     },
+     {
+      "label": "Sort Lines As Decimals (Dot) Ascending",
+      "id": 42065
+     },
+     {
+      "label": "Sort Lines As Length Ascending",
+      "id": 42104
+     },
+     {
+      "sep": true
+     },
+     {
+      "label": "Sort Lines Lexicographically Descending",
+      "id": 42060
+     },
+     {
+      "label": "Sort Lines Lex. Descending Ignoring Case",
+      "id": 42081
+     },
+     {
+      "label": "Sort Lines In Locale Order Descending",
+      "id": 42101
+     },
+     {
+      "label": "Sort Lines As Integers Descending",
+      "id": 42062
+     },
+     {
+      "label": "Sort Lines As Decimals (Comma) Descending",
+      "id": 42064
+     },
+     {
+      "label": "Sort Lines As Decimals (Dot) Descending",
+      "id": 42066
+     },
+     {
+      "label": "Sort Lines As Length Descending",
+      "id": 42105
+     }
+    ]
+   },
+   {
+    "label": "Comment/Uncomment",
+    "children": [
+     {
+      "label": "Toggle Single Line Comment",
+      "id": 42022
+     },
+     {
+      "label": "Single Line Comment",
+      "id": 42035
+     },
+     {
+      "label": "Single Line Uncomment",
+      "id": 42036
+     },
+     {
+      "label": "Block Comment",
+      "id": 42023
+     },
+     {
+      "label": "Block Uncomment",
+      "id": 42047
+     }
+    ]
+   },
+   {
+    "label": "Auto-Completion",
+    "children": [
+     {
+      "label": "Function Completion",
+      "id": 50000
+     },
+     {
+      "label": "Word Completion",
+      "id": 50001
+     },
+     {
+      "label": "Function Parameters Hint",
+      "id": 50002
+     },
+     {
+      "label": "Function Parameters Previous Hint",
+      "id": 50010
+     },
+     {
+      "label": "Function Parameters Next Hint",
+      "id": 50011
+     },
+     {
+      "label": "Path Completion",
+      "id": 50006
+     }
+    ]
+   },
+   {
+    "label": "EOL Conversion",
+    "children": [
+     {
+      "label": "Windows (CR LF)",
+      "id": 45001
+     },
+     {
+      "label": "Unix (LF)",
+      "id": 45002
+     },
+     {
+      "label": "Macintosh (CR)",
+      "id": 45003
+     }
+    ]
+   },
+   {
+    "label": "Blank Operations",
+    "children": [
+     {
+      "label": "Trim Trailing Space",
+      "id": 42024
+     },
+     {
+      "label": "Trim Leading Space",
+      "id": 42042
+     },
+     {
+      "label": "Trim Leading and Trailing Space",
+      "id": 42043
+     },
+     {
+      "label": "EOL to Space",
+      "id": 42044
+     },
+     {
+      "label": "Trim both and EOL to Space",
+      "id": 42045
+     },
+     {
+      "sep": true
+     },
+     {
+      "label": "TAB to Space",
+      "id": 42046
+     },
+     {
+      "label": "Space to TAB (All)",
+      "id": 42054
+     },
+     {
+      "label": "Space to TAB (Leading)",
+      "id": 42053
+     }
+    ]
+   },
+   {
+    "label": "Paste Special",
+    "children": [
+     {
+      "label": "Paste HTML Content",
+      "id": 42038
+     },
+     {
+      "label": "Paste RTF Content",
+      "id": 42039
+     },
+     {
+      "sep": true
+     },
+     {
+      "label": "Copy Binary Content",
+      "id": 42048
+     },
+     {
+      "label": "Cut Binary Content",
+      "id": 42049
+     },
+     {
+      "label": "Paste Binary Content",
+      "id": 42050
+     }
+    ]
+   },
+   {
+    "label": "On Selection",
+    "children": [
+     {
+      "label": "Open File",
+      "id": 42073
+     },
+     {
+      "label": "Open Containing Folder in Explorer",
+      "id": 42074
+     },
+     {
+      "sep": true
+     },
+     {
+      "label": "Search on Internet",
+      "id": 42075
+     },
+     {
+      "label": "Change Search Engine...",
+      "id": 42076
+     }
+    ]
+   },
+   {
+    "sep": true
+   },
+   {
+    "label": "Multi-select All",
+    "children": [
+     {
+      "label": "Ignore Case  Whole Word",
+      "id": 42090
+     },
+     {
+      "label": "Match Case Only",
+      "id": 42091
+     },
+     {
+      "label": "Match Whole Word Only",
+      "id": 42092
+     },
+     {
+      "label": "Match Case  Whole Word",
+      "id": 42093
+     }
+    ]
+   },
+   {
+    "label": "Multi-select Next",
+    "children": [
+     {
+      "label": "Ignore Case  Whole Word",
+      "id": 42094
+     },
+     {
+      "label": "Match Case Only",
+      "id": 42095
+     },
+     {
+      "label": "Match Whole Word Only",
+      "id": 42096
+     },
+     {
+      "label": "Match Case  Whole Word",
+      "id": 42097
+     }
+    ]
+   },
+   {
+    "label": "Undo the Latest Added Multi-Select",
+    "id": 42098
+   },
+   {
+    "label": "Skip Current  Go to Next Multi-select",
+    "id": 42099
+   },
+   {
+    "sep": true
+   },
+   {
+    "label": "Column Mode...",
+    "id": 42037
+   },
+   {
+    "label": "Column Editor...",
+    "id": 42034
+   },
+   {
+    "label": "Character Panel",
+    "id": 42051
+   },
+   {
+    "label": "Clipboard History",
+    "id": 42052
+   },
+   {
+    "sep": true
+   },
+   {
+    "label": "Read-Only in Notepad++",
+    "children": [
+     {
+      "label": "Read-Only on Current Document",
+      "id": 42028
+     },
+     {
+      "label": "Read-Only for All Documents",
+      "id": 42102
+     },
+     {
+      "label": "Clear Read-Only for All Documents",
+      "id": 42103
+     }
+    ]
+   },
+   {
+    "label": "Read-Only Attribute in Windows",
+    "id": 42033
+   }
+  ]
+ },
+ {
+  "label": "Search",
+  "children": [
+   {
+    "label": "Find...",
+    "id": 43001
+   },
+   {
+    "label": "Find in Files...",
+    "id": 43013
+   },
+   {
+    "label": "Find Next",
+    "id": 43002
+   },
+   {
+    "label": "Find Previous",
+    "id": 43010
+   },
+   {
+    "label": "Select and Find Next",
+    "id": 43048
+   },
+   {
+    "label": "Select and Find Previous",
+    "id": 43049
+   },
+   {
+    "label": "Find (Volatile) Next",
+    "id": 43014
+   },
+   {
+    "label": "Find (Volatile) Previous",
+    "id": 43015
+   },
+   {
+    "label": "Replace...",
+    "id": 43003
+   },
+   {
+    "label": "Incremental Search",
+    "id": 43011
+   },
+   {
+    "label": "Search Results Window",
+    "id": 43045
+   },
+   {
+    "label": "Next Search Result",
+    "id": 43046
+   },
+   {
+    "label": "Previous Search Result",
+    "id": 43047
+   },
+   {
+    "label": "Go to...",
+    "id": 43004
+   },
+   {
+    "label": "Go to Matching Brace",
+    "id": 43009
+   },
+   {
+    "label": "Select All In-between {} [] or ()",
+    "id": 43053
+   },
+   {
+    "label": "Mark...",
+    "id": 43054
+   },
+   {
+    "sep": true
+   },
+   {
+    "label": "Change History",
+    "children": [
+     {
+      "label": "Go to Next Change",
+      "id": 43067
+     },
+     {
+      "label": "Go to Previous Change",
+      "id": 43068
+     },
+     {
+      "label": "Clear Change History",
+      "id": 43069
+     }
+    ]
+   },
+   {
+    "sep": true
+   },
+   {
+    "label": "Style All Occurrences of Token",
+    "children": [
+     {
+      "label": "Using 1st Style",
+      "id": 43022
+     },
+     {
+      "label": "Using 2nd Style",
+      "id": 43024
+     },
+     {
+      "label": "Using 3rd Style",
+      "id": 43026
+     },
+     {
+      "label": "Using 4th Style",
+      "id": 43028
+     },
+     {
+      "label": "Using 5th Style",
+      "id": 43030
+     }
+    ]
+   },
+   {
+    "label": "Style One Token",
+    "children": [
+     {
+      "label": "Using 1st Style",
+      "id": 43062
+     },
+     {
+      "label": "Using 2nd Style",
+      "id": 43063
+     },
+     {
+      "label": "Using 3rd Style",
+      "id": 43064
+     },
+     {
+      "label": "Using 4th Style",
+      "id": 43065
+     },
+     {
+      "label": "Using 5th Style",
+      "id": 43066
+     }
+    ]
+   },
+   {
+    "label": "Clear Style",
+    "children": [
+     {
+      "label": "Clear 1st Style",
+      "id": 43023
+     },
+     {
+      "label": "Clear 2nd Style",
+      "id": 43025
+     },
+     {
+      "label": "Clear 3rd Style",
+      "id": 43027
+     },
+     {
+      "label": "Clear 4th Style",
+      "id": 43029
+     },
+     {
+      "label": "Clear 5th Style",
+      "id": 43031
+     },
+     {
+      "label": "Clear all Styles",
+      "id": 43032
+     }
+    ]
+   },
+   {
+    "label": "Jump Up",
+    "children": [
+     {
+      "label": "1st Style",
+      "id": 43033
+     },
+     {
+      "label": "2nd Style",
+      "id": 43034
+     },
+     {
+      "label": "3rd Style",
+      "id": 43035
+     },
+     {
+      "label": "4th Style",
+      "id": 43036
+     },
+     {
+      "label": "5th Style",
+      "id": 43037
+     },
+     {
+      "label": "Find Mark Style",
+      "id": 43038
+     }
+    ]
+   },
+   {
+    "label": "Jump Down",
+    "children": [
+     {
+      "label": "1st Style",
+      "id": 43039
+     },
+     {
+      "label": "2nd Style",
+      "id": 43040
+     },
+     {
+      "label": "3rd Style",
+      "id": 43041
+     },
+     {
+      "label": "4th Style",
+      "id": 43042
+     },
+     {
+      "label": "5th Style",
+      "id": 43043
+     },
+     {
+      "label": "Find Mark Style",
+      "id": 43044
+     }
+    ]
+   },
+   {
+    "label": "Copy Styled Text",
+    "children": [
+     {
+      "label": "1st Style",
+      "id": 43055
+     },
+     {
+      "label": "2nd Style",
+      "id": 43056
+     },
+     {
+      "label": "3rd Style",
+      "id": 43057
+     },
+     {
+      "label": "4th Style",
+      "id": 43058
+     },
+     {
+      "label": "5th Style",
+      "id": 43059
+     },
+     {
+      "label": "All Styles",
+      "id": 43060
+     },
+     {
+      "label": "Find Mark Style",
+      "id": 43061
+     }
+    ]
+   },
+   {
+    "sep": true
+   },
+   {
+    "label": "Bookmark",
+    "children": [
+     {
+      "label": "Toggle Bookmark",
+      "id": 43005
+     },
+     {
+      "label": "Next Bookmark",
+      "id": 43006
+     },
+     {
+      "label": "Previous Bookmark",
+      "id": 43007
+     },
+     {
+      "label": "Clear All Bookmarks",
+      "id": 43008
+     },
+     {
+      "label": "Cut Bookmarked Lines",
+      "id": 43018
+     },
+     {
+      "label": "Copy Bookmarked Lines",
+      "id": 43019
+     },
+     {
+      "label": "Paste to (Replace) Bookmarked Lines",
+      "id": 43020
+     },
+     {
+      "label": "Remove Bookmarked Lines",
+      "id": 43021
+     },
+     {
+      "label": "Remove Non-Bookmarked Lines",
+      "id": 43051
+     },
+     {
+      "label": "Inverse Bookmarks",
+      "id": 43050
+     }
+    ]
+   },
+   {
+    "sep": true
+   },
+   {
+    "label": "Find characters in range...",
+    "id": 43052
+   }
+  ]
+ },
+ {
+  "label": "View",
+  "children": [
+   {
+    "label": "Always on Top",
+    "id": 44034
+   },
+   {
+    "label": "Toggle Full Screen Mode",
+    "id": 44032
+   },
+   {
+    "label": "Post-It",
+    "id": 44009
+   },
+   {
+    "label": "Distraction Free Mode",
+    "id": 44011
+   },
+   {
+    "sep": true
+   },
+   {
+    "label": "View Current File in",
+    "children": [
+     {
+      "label": "Firefox",
+      "id": 44100
+     },
+     {
+      "label": "Chrome",
+      "id": 44101
+     },
+     {
+      "label": "Edge",
+      "id": 44102
+     },
+     {
+      "label": "IE",
+      "id": 44103
+     }
+    ]
+   },
+   {
+    "sep": true
+   },
+   {
+    "label": "Show Symbol",
+    "children": [
+     {
+      "label": "Show Space and Tab",
+      "id": 44025
+     },
+     {
+      "label": "Show End of Line",
+      "id": 44026
+     },
+     {
+      "label": "Show Non-Printing Characters",
+      "id": 44130
+     },
+     {
+      "label": "Show Control Characters  Unicode EOL",
+      "id": 44131
+     },
+     {
+      "label": "Show All Characters",
+      "id": 44019
+     },
+     {
+      "sep": true
+     },
+     {
+      "label": "Show Indent Guide",
+      "id": 44020
+     },
+     {
+      "label": "Show Wrap Symbol",
+      "id": 44041
+     }
+    ]
+   },
+   {
+    "label": "Zoom",
+    "children": [
+     {
+      "label": "Zoom In (Ctrl+Mouse Wheel Up)",
+      "id": 44023
+     },
+     {
+      "label": "Zoom Out (Ctrl+Mouse Wheel Down)",
+      "id": 44024
+     },
+     {
+      "label": "Restore Default Zoom",
+      "id": 44033
+     }
+    ]
+   },
+   {
+    "label": "Move/Clone Current Document",
+    "children": [
+     {
+      "label": "Move to Other View",
+      "id": 10001
+     },
+     {
+      "label": "Clone to Other View",
+      "id": 10002
+     },
+     {
+      "label": "Move to New Instance",
+      "id": 10003
+     },
+     {
+      "label": "Open in New Instance",
+      "id": 10004
+     }
+    ]
+   },
+   {
+    "label": "Tab",
+    "children": [
+     {
+      "label": "1st Tab",
+      "id": 44086
+     },
+     {
+      "label": "2nd Tab",
+      "id": 44087
+     },
+     {
+      "label": "3rd Tab",
+      "id": 44088
+     },
+     {
+      "label": "4th Tab",
+      "id": 44089
+     },
+     {
+      "label": "5th Tab",
+      "id": 44090
+     },
+     {
+      "label": "6th Tab",
+      "id": 44091
+     },
+     {
+      "label": "7th Tab",
+      "id": 44092
+     },
+     {
+      "label": "8th Tab",
+      "id": 44093
+     },
+     {
+      "label": "9th Tab",
+      "id": 44094
+     },
+     {
+      "sep": true
+     },
+     {
+      "label": "First Tab",
+      "id": 44116
+     },
+     {
+      "label": "Last Tab",
+      "id": 44117
+     },
+     {
+      "label": "Next Tab",
+      "id": 44095
+     },
+     {
+      "label": "Previous Tab",
+      "id": 44096
+     },
+     {
+      "sep": true
+     },
+     {
+      "label": "Move to Start",
+      "id": 10005
+     },
+     {
+      "label": "Move to End",
+      "id": 10006
+     },
+     {
+      "label": "Move Tab Forward",
+      "id": 44098
+     },
+     {
+      "label": "Move Tab Backward",
+      "id": 44099
+     },
+     {
+      "sep": true
+     },
+     {
+      "label": "Apply Color 1",
+      "id": 44111
+     },
+     {
+      "label": "Apply Color 2",
+      "id": 44112
+     },
+     {
+      "label": "Apply Color 3",
+      "id": 44113
+     },
+     {
+      "label": "Apply Color 4",
+      "id": 44114
+     },
+     {
+      "label": "Apply Color 5",
+      "id": 44115
+     },
+     {
+      "label": "Remove Color",
+      "id": 44110
+     }
+    ]
+   },
+   {
+    "label": "Word wrap",
+    "id": 44022
+   },
+   {
+    "label": "Focus on Another View",
+    "id": 44072
+   },
+   {
+    "label": "Hide Lines",
+    "id": 44042
+   },
+   {
+    "sep": true
+   },
+   {
+    "label": "Fold All",
+    "id": 44010
+   },
+   {
+    "label": "Unfold All",
+    "id": 44029
+   },
+   {
+    "label": "Fold Current Level",
+    "id": 44030
+   },
+   {
+    "label": "Unfold Current Level",
+    "id": 44031
+   },
+   {
+    "label": "Fold Level",
+    "children": [
+     {
+      "label": "1",
+      "id": 44051
+     },
+     {
+      "label": "2",
+      "id": 44052
+     },
+     {
+      "label": "3",
+      "id": 44053
+     },
+     {
+      "label": "4",
+      "id": 44054
+     },
+     {
+      "label": "5",
+      "id": 44055
+     },
+     {
+      "label": "6",
+      "id": 44056
+     },
+     {
+      "label": "7",
+      "id": 44057
+     },
+     {
+      "label": "8",
+      "id": 44058
+     }
+    ]
+   },
+   {
+    "label": "Unfold Level",
+    "children": [
+     {
+      "label": "1",
+      "id": 44061
+     },
+     {
+      "label": "2",
+      "id": 44062
+     },
+     {
+      "label": "3",
+      "id": 44063
+     },
+     {
+      "label": "4",
+      "id": 44064
+     },
+     {
+      "label": "5",
+      "id": 44065
+     },
+     {
+      "label": "6",
+      "id": 44066
+     },
+     {
+      "label": "7",
+      "id": 44067
+     },
+     {
+      "label": "8",
+      "id": 44068
+     }
+    ]
+   },
+   {
+    "sep": true
+   },
+   {
+    "label": "Summary...",
+    "id": 44049
+   },
+   {
+    "sep": true
+   },
+   {
+    "label": "Project Panels",
+    "children": [
+     {
+      "label": "Project Panel 1",
+      "id": 44081
+     },
+     {
+      "label": "Project Panel 2",
+      "id": 44082
+     },
+     {
+      "label": "Project Panel 3",
+      "id": 44083
+     }
+    ]
+   },
+   {
+    "label": "Folder as Workspace",
+    "id": 44085
+   },
+   {
+    "label": "Document Map",
+    "id": 44080
+   },
+   {
+    "label": "Document List",
+    "id": 44070
+   },
+   {
+    "label": "Function List",
+    "id": 44084
+   },
+   {
+    "sep": true
+   },
+   {
+    "label": "Synchronize Vertical Scrolling",
+    "id": 44035
+   },
+   {
+    "label": "Synchronize Horizontal Scrolling",
+    "id": 44036
+   },
+   {
+    "sep": true
+   },
+   {
+    "label": "Text Direction RTL",
+    "id": 42026
+   },
+   {
+    "label": "Text Direction LTR",
+    "id": 42027
+   },
+   {
+    "sep": true
+   },
+   {
+    "label": "Monitoring (tail -f)",
+    "id": 44097
+   }
+  ]
+ },
+ {
+  "label": "Encoding",
+  "children": [
+   {
+    "label": "ANSI",
+    "id": 45004
+   },
+   {
+    "label": "UTF-8",
+    "id": 45008
+   },
+   {
+    "label": "UTF-8-BOM",
+    "id": 45005
+   },
+   {
+    "label": "UTF-16 BE BOM",
+    "id": 45006
+   },
+   {
+    "label": "UTF-16 LE BOM",
+    "id": 45007
+   },
+   {
+    "label": "Character sets",
+    "children": [
+     {
+      "label": "Arabic",
+      "children": [
+       {
+        "label": "ISO 8859-6",
+        "id": 45034
+       },
+       {
+        "label": "OEM 720",
+        "id": 45045
+       },
+       {
+        "label": "Windows-1256",
+        "id": 45026
+       }
+      ]
+     },
+     {
+      "label": "Baltic",
+      "children": [
+       {
+        "label": "ISO 8859-4",
+        "id": 45032
+       },
+       {
+        "label": "ISO 8859-13",
+        "id": 45040
+       },
+       {
+        "label": "OEM 775",
+        "id": 45047
+       },
+       {
+        "label": "Windows-1257",
+        "id": 45027
+       }
+      ]
+     },
+     {
+      "label": "Celtic",
+      "children": [
+       {
+        "label": "ISO 8859-14",
+        "id": 45041
+       }
+      ]
+     },
+     {
+      "label": "Cyrillic",
+      "children": [
+       {
+        "label": "ISO 8859-5",
+        "id": 45033
+       },
+       {
+        "label": "KOI8-R",
+        "id": 45068
+       },
+       {
+        "label": "KOI8-U",
+        "id": 45067
+       },
+       {
+        "label": "Macintosh",
+        "id": 45066
+       },
+       {
+        "label": "OEM 855",
+        "id": 45050
+       },
+       {
+        "label": "OEM 866",
+        "id": 45058
+       },
+       {
+        "label": "Windows-1251",
+        "id": 45021
+       }
+      ]
+     },
+     {
+      "label": "Central European",
+      "children": [
+       {
+        "label": "OEM 852",
+        "id": 45049
+       },
+       {
+        "label": "Windows-1250",
+        "id": 45020
+       }
+      ]
+     },
+     {
+      "label": "Chinese",
+      "children": [
+       {
+        "label": "Big5 (Traditional)",
+        "id": 45060
+       },
+       {
+        "label": "GB2312 (Simplified)",
+        "id": 45061
+       }
+      ]
+     },
+     {
+      "label": "Eastern European",
+      "children": [
+       {
+        "label": "ISO 8859-2",
+        "id": 45030
+       }
+      ]
+     },
+     {
+      "label": "Greek",
+      "children": [
+       {
+        "label": "ISO 8859-7",
+        "id": 45035
+       },
+       {
+        "label": "OEM 737",
+        "id": 45046
+       },
+       {
+        "label": "OEM 869",
+        "id": 45059
+       },
+       {
+        "label": "Windows-1253",
+        "id": 45023
+       }
+      ]
+     },
+     {
+      "label": "Hebrew",
+      "children": [
+       {
+        "label": "ISO 8859-8",
+        "id": 45036
+       },
+       {
+        "label": "OEM 862",
+        "id": 45055
+       },
+       {
+        "label": "Windows-1255",
+        "id": 45025
+       }
+      ]
+     },
+     {
+      "label": "Japanese",
+      "children": [
+       {
+        "label": "Shift-JIS",
+        "id": 45062
+       }
+      ]
+     },
+     {
+      "label": "Korean",
+      "children": [
+       {
+        "label": "Windows 949",
+        "id": 45063
+       },
+       {
+        "label": "EUC-KR",
+        "id": 45064
+       }
+      ]
+     },
+     {
+      "label": "North European",
+      "children": [
+       {
+        "label": "OEM 861 : Icelandic",
+        "id": 45054
+       },
+       {
+        "label": "OEM 865 : Nordic",
+        "id": 45057
+       }
+      ]
+     },
+     {
+      "label": "Thai",
+      "children": [
+       {
+        "label": "TIS-620",
+        "id": 45065
+       }
+      ]
+     },
+     {
+      "label": "Turkish",
+      "children": [
+       {
+        "label": "ISO 8859-3",
+        "id": 45031
+       },
+       {
+        "label": "ISO 8859-9",
+        "id": 45037
+       },
+       {
+        "label": "OEM 857",
+        "id": 45051
+       },
+       {
+        "label": "Windows-1254",
+        "id": 45024
+       }
+      ]
+     },
+     {
+      "label": "Western European",
+      "children": [
+       {
+        "label": "ISO 8859-1",
+        "id": 45029
+       },
+       {
+        "label": "ISO 8859-15",
+        "id": 45042
+       },
+       {
+        "label": "OEM 850",
+        "id": 45048
+       },
+       {
+        "label": "OEM 858",
+        "id": 45052
+       },
+       {
+        "label": "OEM 860 : Portuguese",
+        "id": 45053
+       },
+       {
+        "label": "OEM 863 : French",
+        "id": 45056
+       },
+       {
+        "label": "OEM-US",
+        "id": 45044
+       },
+       {
+        "label": "Windows-1252",
+        "id": 45022
+       }
+      ]
+     },
+     {
+      "label": "Vietnamese",
+      "children": [
+       {
+        "label": "Windows-1258",
+        "id": 45028
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "sep": true
+   },
+   {
+    "label": "Convert to ANSI",
+    "id": 45009
+   },
+   {
+    "label": "Convert to UTF-8",
+    "id": 45010
+   },
+   {
+    "label": "Convert to UTF-8-BOM",
+    "id": 45011
+   },
+   {
+    "label": "Convert to UTF-16 BE BOM",
+    "id": 45012
+   },
+   {
+    "label": "Convert to UTF-16 LE BOM",
+    "id": 45013
+   }
+  ]
+ },
+ {
+  "label": "Language",
+  "children": [
+   {
+    "label": "None (Normal Text)",
+    "id": 46016
+   },
+   {
+    "sep": true
+   },
+   {
+    "label": "ActionScript",
+    "id": 46028
+   },
+   {
+    "label": "Ada",
+    "id": 46042
+   },
+   {
+    "label": "ASN.1",
+    "id": 46064
+   },
+   {
+    "label": "ASP",
+    "id": 46009
+   },
+   {
+    "label": "Assembly",
+    "id": 46033
+   },
+   {
+    "label": "AutoIt",
+    "id": 46044
+   },
+   {
+    "label": "AviSynth",
+    "id": 46065
+   },
+   {
+    "label": "BaanC",
+    "id": 46059
+   },
+   {
+    "label": "Batch",
+    "id": 46022
+   },
+   {
+    "label": "Blitzbasic",
+    "id": 46066
+   },
+   {
+    "label": "C",
+    "id": 46002
+   },
+   {
+    "label": "C#",
+    "id": 46023
+   },
+   {
+    "label": "C++",
+    "id": 46003
+   },
+   {
+    "label": "Caml",
+    "id": 46040
+   },
+   {
+    "label": "CMake",
+    "id": 46048
+   },
+   {
+    "label": "COBOL",
+    "id": 46050
+   },
+   {
+    "label": "CSound",
+    "id": 46069
+   },
+   {
+    "label": "CoffeeScript",
+    "id": 46056
+   },
+   {
+    "label": "CSS",
+    "id": 46010
+   },
+   {
+    "label": "D",
+    "id": 46051
+   },
+   {
+    "label": "Diff",
+    "id": 46034
+   },
+   {
+    "label": "Erlang",
+    "id": 46070
+   },
+   {
+    "label": "ErrorList",
+    "id": 46093
+   },
+   {
+    "label": "ESCRIPT",
+    "id": 46071
+   },
+   {
+    "label": "Forth",
+    "id": 46072
+   },
+   {
+    "label": "Fortran (free form)",
+    "id": 46026
+   },
+   {
+    "label": "Fortran (fixed form)",
+    "id": 46058
+   },
+   {
+    "label": "Freebasic",
+    "id": 46068
+   },
+   {
+    "label": "GDScript",
+    "id": 46087
+   },
+   {
+    "label": "Go",
+    "id": 46089
+   },
+   {
+    "label": "Gui4Cli",
+    "id": 46052
+   },
+   {
+    "label": "Haskell",
+    "id": 46046
+   },
+   {
+    "label": "Hollywood",
+    "id": 46088
+   },
+   {
+    "label": "HTML",
+    "id": 46005
+   },
+   {
+    "label": "INI file",
+    "id": 46019
+   },
+   {
+    "label": "Inno Setup",
+    "id": 46047
+   },
+   {
+    "label": "Intel HEX",
+    "id": 46061
+   },
+   {
+    "label": "Java",
+    "id": 46004
+   },
+   {
+    "label": "JavaScript",
+    "id": 46007
+   },
+   {
+    "label": "JSON",
+    "id": 46057
+   },
+   {
+    "label": "JSON5",
+    "id": 46085
+   },
+   {
+    "label": "JSP",
+    "id": 46055
+   },
+   {
+    "label": "KIXtart",
+    "id": 46041
+   },
+   {
+    "label": "LISP",
+    "id": 46031
+   },
+   {
+    "label": "LaTeX",
+    "id": 46073
+   },
+   {
+    "label": "Lua",
+    "id": 46024
+   },
+   {
+    "label": "Makefile",
+    "id": 46018
+   },
+   {
+    "label": "Matlab",
+    "id": 46045
+   },
+   {
+    "label": "Microsoft Transact-SQL",
+    "id": 46086
+   },
+   {
+    "label": "MMIXAL",
+    "id": 46074
+   },
+   {
+    "label": "MS-DOS Style",
+    "id": 46015
+   },
+   {
+    "label": "Nim",
+    "id": 46075
+   },
+   {
+    "label": "Nncrontab",
+    "id": 46076
+   },
+   {
+    "label": "NSIS",
+    "id": 46029
+   },
+   {
+    "label": "Objective-C",
+    "id": 46014
+   },
+   {
+    "label": "OScript",
+    "id": 46077
+   },
+   {
+    "label": "Pascal",
+    "id": 46011
+   },
+   {
+    "label": "Perl",
+    "id": 46013
+   },
+   {
+    "label": "PHP",
+    "id": 46008
+   },
+   {
+    "label": "PostScript",
+    "id": 46036
+   },
+   {
+    "label": "PowerShell",
+    "id": 46053
+   },
+   {
+    "label": "Properties",
+    "id": 46035
+   },
+   {
+    "label": "Purebasic",
+    "id": 46067
+   },
+   {
+    "label": "Python",
+    "id": 46012
+   },
+   {
+    "label": "R",
+    "id": 46054
+   },
+   {
+    "label": "Raku",
+    "id": 46090
+   },
+   {
+    "label": "REBOL",
+    "id": 46078
+   },
+   {
+    "label": "Registry",
+    "id": 46079
+   },
+   {
+    "label": "Resource file",
+    "id": 46017
+   },
+   {
+    "label": "Ruby",
+    "id": 46037
+   },
+   {
+    "label": "Rust",
+    "id": 46080
+   },
+   {
+    "label": "SAS",
+    "id": 46092
+   },
+   {
+    "label": "Shell",
+    "id": 46027
+   },
+   {
+    "label": "Scheme",
+    "id": 46032
+   },
+   {
+    "label": "Smalltalk",
+    "id": 46038
+   },
+   {
+    "label": "Spice",
+    "id": 46081
+   },
+   {
+    "label": "SQL",
+    "id": 46020
+   },
+   {
+    "label": "Swift",
+    "id": 46063
+   },
+   {
+    "label": "S-Record",
+    "id": 46060
+   },
+   {
+    "label": "TCL",
+    "id": 46030
+   },
+   {
+    "label": "Tektronix extended HEX",
+    "id": 46062
+   },
+   {
+    "label": "TeX",
+    "id": 46025
+   },
+   {
+    "label": "TOML",
+    "id": 46091
+   },
+   {
+    "label": "txt2tags",
+    "id": 46082
+   },
+   {
+    "label": "TypeScript",
+    "id": 46084
+   },
+   {
+    "label": "Verilog",
+    "id": 46043
+   },
+   {
+    "label": "VHDL",
+    "id": 46039
+   },
+   {
+    "label": "Visual Basic",
+    "id": 46021
+   },
+   {
+    "label": "Visual Prolog",
+    "id": 46083
+   },
+   {
+    "label": "XML",
+    "id": 46006
+   },
+   {
+    "label": "YAML",
+    "id": 46049
+   },
+   {
+    "sep": true
+   },
+   {
+    "label": "Define your language...",
+    "id": 46250
+   },
+   {
+    "label": "Open User Defined Language folder...",
+    "id": 46300
+   },
+   {
+    "label": "Notepad++ User Defined Languages Collection",
+    "id": 46301
+   },
+   {
+    "label": "User-Defined",
+    "id": 46180
+   }
+  ]
+ },
+ {
+  "label": "Language",
+  "children": [
+   {
+    "label": "None (Normal Text)",
+    "id": 46016
+   },
+   {
+    "sep": true
+   },
+   {
+    "label": "A",
+    "children": [
+     {
+      "label": "ActionScript",
+      "id": 46028
+     },
+     {
+      "label": "Ada",
+      "id": 46042
+     },
+     {
+      "label": "ASN.1",
+      "id": 46064
+     },
+     {
+      "label": "ASP",
+      "id": 46009
+     },
+     {
+      "label": "Assembly",
+      "id": 46033
+     },
+     {
+      "label": "AutoIt",
+      "id": 46044
+     },
+     {
+      "label": "AviSynth",
+      "id": 46065
+     }
+    ]
+   },
+   {
+    "label": "B",
+    "children": [
+     {
+      "label": "BaanC",
+      "id": 46059
+     },
+     {
+      "label": "Batch",
+      "id": 46022
+     },
+     {
+      "label": "Blitzbasic",
+      "id": 46066
+     }
+    ]
+   },
+   {
+    "label": "C",
+    "children": [
+     {
+      "label": "C",
+      "id": 46002
+     },
+     {
+      "label": "C#",
+      "id": 46023
+     },
+     {
+      "label": "C++",
+      "id": 46003
+     },
+     {
+      "label": "Caml",
+      "id": 46040
+     },
+     {
+      "label": "CMake",
+      "id": 46048
+     },
+     {
+      "label": "COBOL",
+      "id": 46050
+     },
+     {
+      "label": "CSound",
+      "id": 46069
+     },
+     {
+      "label": "CoffeeScript",
+      "id": 46056
+     },
+     {
+      "label": "CSS",
+      "id": 46010
+     }
+    ]
+   },
+   {
+    "label": "D",
+    "children": [
+     {
+      "label": "D",
+      "id": 46051
+     },
+     {
+      "label": "Diff",
+      "id": 46034
+     }
+    ]
+   },
+   {
+    "label": "E",
+    "children": [
+     {
+      "label": "Erlang",
+      "id": 46070
+     },
+     {
+      "label": "ErrorList",
+      "id": 46093
+     },
+     {
+      "label": "ESCRIPT",
+      "id": 46071
+     }
+    ]
+   },
+   {
+    "label": "F",
+    "children": [
+     {
+      "label": "Forth",
+      "id": 46072
+     },
+     {
+      "label": "Fortran (free form)",
+      "id": 46026
+     },
+     {
+      "label": "Fortran (fixed form)",
+      "id": 46058
+     },
+     {
+      "label": "Freebasic",
+      "id": 46068
+     }
+    ]
+   },
+   {
+    "label": "G",
+    "children": [
+     {
+      "label": "GDScript",
+      "id": 46087
+     },
+     {
+      "label": "Go",
+      "id": 46089
+     },
+     {
+      "label": "Gui4Cli",
+      "id": 46052
+     }
+    ]
+   },
+   {
+    "label": "H",
+    "children": [
+     {
+      "label": "Haskell",
+      "id": 46046
+     },
+     {
+      "label": "Hollywood",
+      "id": 46088
+     },
+     {
+      "label": "HTML",
+      "id": 46005
+     }
+    ]
+   },
+   {
+    "label": "I",
+    "children": [
+     {
+      "label": "INI file",
+      "id": 46019
+     },
+     {
+      "label": "Inno Setup",
+      "id": 46047
+     },
+     {
+      "label": "Intel HEX",
+      "id": 46061
+     }
+    ]
+   },
+   {
+    "label": "J",
+    "children": [
+     {
+      "label": "Java",
+      "id": 46004
+     },
+     {
+      "label": "JavaScript",
+      "id": 46007
+     },
+     {
+      "label": "JSON",
+      "id": 46057
+     },
+     {
+      "label": "JSON5",
+      "id": 46085
+     },
+     {
+      "label": "JSP",
+      "id": 46055
+     }
+    ]
+   },
+   {
+    "label": "KIXtart",
+    "id": 46041
+   },
+   {
+    "label": "L",
+    "children": [
+     {
+      "label": "LaTeX",
+      "id": 46073
+     },
+     {
+      "label": "LISP",
+      "id": 46031
+     },
+     {
+      "label": "Lua",
+      "id": 46024
+     }
+    ]
+   },
+   {
+    "label": "M",
+    "children": [
+     {
+      "label": "Makefile",
+      "id": 46018
+     },
+     {
+      "label": "Matlab",
+      "id": 46045
+     },
+     {
+      "label": "Microsoft Transact-SQL",
+      "id": 46086
+     },
+     {
+      "label": "MMIXAL",
+      "id": 46074
+     },
+     {
+      "label": "MS-DOS Style",
+      "id": 46015
+     }
+    ]
+   },
+   {
+    "label": "N",
+    "children": [
+     {
+      "label": "Nim",
+      "id": 46075
+     },
+     {
+      "label": "Nncrontab",
+      "id": 46076
+     },
+     {
+      "label": "NSIS",
+      "id": 46029
+     }
+    ]
+   },
+   {
+    "label": "O",
+    "children": [
+     {
+      "label": "Objective-C",
+      "id": 46014
+     },
+     {
+      "label": "OScript",
+      "id": 46077
+     }
+    ]
+   },
+   {
+    "label": "P",
+    "children": [
+     {
+      "label": "Pascal",
+      "id": 46011
+     },
+     {
+      "label": "Perl",
+      "id": 46013
+     },
+     {
+      "label": "PHP",
+      "id": 46008
+     },
+     {
+      "label": "PostScript",
+      "id": 46036
+     },
+     {
+      "label": "PowerShell",
+      "id": 46053
+     },
+     {
+      "label": "Properties",
+      "id": 46035
+     },
+     {
+      "label": "Purebasic",
+      "id": 46067
+     },
+     {
+      "label": "Python",
+      "id": 46012
+     }
+    ]
+   },
+   {
+    "label": "R",
+    "children": [
+     {
+      "label": "R",
+      "id": 46054
+     },
+     {
+      "label": "Raku",
+      "id": 46090
+     },
+     {
+      "label": "REBOL",
+      "id": 46078
+     },
+     {
+      "label": "Registry",
+      "id": 46079
+     },
+     {
+      "label": "Resource file",
+      "id": 46017
+     },
+     {
+      "label": "Ruby",
+      "id": 46037
+     },
+     {
+      "label": "Rust",
+      "id": 46080
+     }
+    ]
+   },
+   {
+    "label": "S",
+    "children": [
+     {
+      "label": "SAS",
+      "id": 46092
+     },
+     {
+      "label": "Shell",
+      "id": 46027
+     },
+     {
+      "label": "Scheme",
+      "id": 46032
+     },
+     {
+      "label": "Smalltalk",
+      "id": 46038
+     },
+     {
+      "label": "Spice",
+      "id": 46081
+     },
+     {
+      "label": "SQL",
+      "id": 46020
+     },
+     {
+      "label": "Swift",
+      "id": 46063
+     },
+     {
+      "label": "S-Record",
+      "id": 46060
+     }
+    ]
+   },
+   {
+    "label": "T",
+    "children": [
+     {
+      "label": "TCL",
+      "id": 46030
+     },
+     {
+      "label": "Tektronix extended HEX",
+      "id": 46062
+     },
+     {
+      "label": "TeX",
+      "id": 46025
+     },
+     {
+      "label": "TOML",
+      "id": 46091
+     },
+     {
+      "label": "txt2tags",
+      "id": 46082
+     },
+     {
+      "label": "TypeScript",
+      "id": 46084
+     }
+    ]
+   },
+   {
+    "label": "V",
+    "children": [
+     {
+      "label": "Visual Basic",
+      "id": 46021
+     },
+     {
+      "label": "Visual Prolog",
+      "id": 46083
+     },
+     {
+      "label": "VHDL",
+      "id": 46039
+     },
+     {
+      "label": "Verilog",
+      "id": 46043
+     }
+    ]
+   },
+   {
+    "label": "XML",
+    "id": 46006
+   },
+   {
+    "label": "YAML",
+    "id": 46049
+   },
+   {
+    "sep": true
+   },
+   {
+    "label": "User Defined Language",
+    "children": [
+     {
+      "label": "Define your language...",
+      "id": 46250
+     },
+     {
+      "label": "Open User Defined Language folder...",
+      "id": 46300
+     },
+     {
+      "label": "Notepad++ User Defined Languages Collection",
+      "id": 46301
+     }
+    ]
+   },
+   {
+    "label": "User-Defined",
+    "id": 46180
+   }
+  ]
+ },
+ {
+  "label": "Settings",
+  "children": [
+   {
+    "label": "Preferences...",
+    "id": 48011
+   },
+   {
+    "label": "Style Configurator...",
+    "id": 46001
+   },
+   {
+    "label": "Shortcut Mapper...",
+    "id": 48009
+   },
+   {
+    "sep": true
+   },
+   {
+    "label": "Import",
+    "children": [
+     {
+      "label": "Import plugin(s)...",
+      "id": 48005
+     },
+     {
+      "label": "Import style theme(s)...",
+      "id": 48006
+     }
+    ]
+   },
+   {
+    "sep": true
+   },
+   {
+    "label": "Edit Popup ContextMenu",
+    "id": 48018
+   }
+  ]
+ },
+ {
+  "label": "Tools",
+  "children": [
+   {
+    "label": "MD5",
+    "children": [
+     {
+      "label": "Generate...",
+      "id": 48501
+     },
+     {
+      "label": "Generate from files...",
+      "id": 48502
+     },
+     {
+      "label": "Generate from selection into clipboard",
+      "id": 48503
+     }
+    ]
+   },
+   {
+    "label": "SHA-1",
+    "children": [
+     {
+      "label": "Generate...",
+      "id": 48507
+     },
+     {
+      "label": "Generate from files...",
+      "id": 48508
+     },
+     {
+      "label": "Generate from selection into clipboard",
+      "id": 48509
+     }
+    ]
+   },
+   {
+    "label": "SHA-256",
+    "children": [
+     {
+      "label": "Generate...",
+      "id": 48504
+     },
+     {
+      "label": "Generate from files...",
+      "id": 48505
+     },
+     {
+      "label": "Generate from selection into clipboard",
+      "id": 48506
+     }
+    ]
+   },
+   {
+    "label": "SHA-512",
+    "children": [
+     {
+      "label": "Generate...",
+      "id": 48510
+     },
+     {
+      "label": "Generate from files...",
+      "id": 48511
+     },
+     {
+      "label": "Generate from selection into clipboard",
+      "id": 48512
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "label": "Macro",
+  "children": [
+   {
+    "label": "Start Recording",
+    "id": 42018
+   },
+   {
+    "label": "Stop Recording",
+    "id": 42019
+   },
+   {
+    "label": "Playback",
+    "id": 42021
+   },
+   {
+    "label": "Save Current Recorded Macro...",
+    "id": 42025
+   },
+   {
+    "label": "Run a Macro Multiple Times...",
+    "id": 42032
+   }
+  ]
+ },
+ {
+  "label": "Run",
+  "children": [
+   {
+    "label": "Run...",
+    "id": 49000
+   }
+  ]
+ },
+ {
+  "label": "Plugins",
+  "children": [
+   {
+    "label": "Open Plugins Folder...",
+    "id": 48014
+   }
+  ]
+ },
+ {
+  "label": "Window",
+  "children": [
+   {
+    "label": "Sort By",
+    "children": [
+     {
+      "label": "Name A to Z",
+      "id": 11002
+     },
+     {
+      "label": "Name Z to A",
+      "id": 11003
+     },
+     {
+      "label": "Path A to Z",
+      "id": 11004
+     },
+     {
+      "label": "Path Z to A",
+      "id": 11005
+     },
+     {
+      "label": "Type A to Z",
+      "id": 11006
+     },
+     {
+      "label": "Type Z to A",
+      "id": 11007
+     },
+     {
+      "label": "Content Length Ascending",
+      "id": 11008
+     },
+     {
+      "label": "Content Length Descending",
+      "id": 11009
+     },
+     {
+      "label": "Modified Time Ascending",
+      "id": 11010
+     },
+     {
+      "label": "Modified Time Descending",
+      "id": 11011
+     }
+    ]
+   },
+   {
+    "label": "Windows...",
+    "id": 11001
+   },
+   {
+    "sep": true
+   },
+   {
+    "label": "Recent Window",
+    "id": 11020
+   }
+  ]
+ },
+ {
+  "label": "?",
+  "children": [
+   {
+    "label": "Command Line Arguments...",
+    "id": 47010
+   },
+   {
+    "sep": true
+   },
+   {
+    "label": "Notepad++ Home",
+    "id": 47001
+   },
+   {
+    "label": "Notepad++ Project Page",
+    "id": 47002
+   },
+   {
+    "label": "Notepad++ Online User Manual",
+    "id": 47003
+   },
+   {
+    "label": "Notepad++ Community (Forum)",
+    "id": 47004
+   },
+   {
+    "sep": true
+   },
+   {
+    "label": "Update Notepad++",
+    "id": 47006
+   },
+   {
+    "label": "Set Updater Proxy...",
+    "id": 47009
+   },
+   {
+    "sep": true
+   },
+   {
+    "label": "Debug Info...",
+    "id": 47012
+   },
+   {
+    "label": "About Notepad++",
+    "id": 47000
+   }
+  ]
+ },
+ {
+  "label": "＋",
+  "id": 41001
+ },
+ {
+  "label": "▼",
+  "children": [
+   {
+    "label": "Recent Window",
+    "id": 14001
+   }
+  ]
+ },
+ {
+  "label": "✕",
+  "id": 41003
+ }
+]
