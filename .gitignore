@@ -1,5 +1,13 @@
 node_modules/
 app/dist/
 dist-app/
+out/
+coverage/
 .remember/
 .DS_Store
+*.log
+npm-debug.log*
+.env
+.env.*
+*.pem
+*.key
