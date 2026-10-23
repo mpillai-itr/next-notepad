@@ -11,7 +11,7 @@ const ctx = await esbuild.context({
     'datatools.worker': 'src/datatools.worker.js',
     'ts.worker': `${M}/language/typescript/ts.worker.js`,
   },
-  bundle: true, format: 'iife', outdir: 'dist', minify: false, sourcemap: false,
+  bundle: true, format: 'iife', outdir: 'dist', minify: true, sourcemap: false,
   loader: { '.ttf': 'file' }, logLevel: 'info',
 });
 if (watch) await ctx.watch(); else { await ctx.rebuild(); await ctx.dispose(); }

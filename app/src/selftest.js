@@ -4,6 +4,8 @@ const wait = (ms) => new Promise((r) => setTimeout(r, ms));
 const SKIP = new Set([41002, 41008, 41015, 41012, 41013, 41022, 48006, 41010, 1001, 41011, 41003, 41004, 41005, 41026, 41009, 41018, 41024, 41016, 41017, 10003, 10004,
   41019, 41020, 41023, 41025, 44100, 44101, 44102, 44103, 42075, 47001, 47002, 47003, 47004, 47006, 48014, 46300, 46301, 44032, 44034, 48018, 44011, 44009, 42033, 42076]);
 export async function run() {
+  { const nav = performance.getEntriesByType('navigation')[0]; const res = performance.getEntriesByType('resource').find((r) => r.name.endsWith('dist/renderer.js'));
+    console.log('[PERF] startup: renderer.js fetched in', Math.round(res?.duration || 0), 'ms; DOMContentLoaded', Math.round(nav?.domContentLoadedEventEnd || 0), 'ms; load', Math.round(nav?.loadEventEnd || 0), 'ms; app ready at', Math.round(performance.now()), 'ms; JS heap', Math.round(performance.memory?.usedJSHeapSize / 1e6), 'MB'); }
   const errs = []; const origErr = console.error;
   console.error = (...a) => { errs.push(a.map((x) => (x && x.stack) || String(x)).join(' ')); };
   const tree = await (await fetch('app://host/menu.json')).json(); const ids = [];
@@ -130,7 +132,8 @@ export async function functional() {
     let t = performance.now(); await NGN.saveSession(); const first = performance.now() - t;
     t = performance.now(); await NGN.saveSession(); const second = performance.now() - t;
     console.log('[PERF] session snapshot, 3 x 8MB untitled docs: first', Math.round(first), 'ms, repeat with no edits', Math.round(second), 'ms');
-    check('repeat snapshot without edits is at least 3x cheaper', second * 3 < first, true); }
+    check('repeat snapshot without edits is at least 3x cheaper', second * 3 < first, true);
+    bigs.forEach((d) => NGN.closeDocNow(d)); } // close them so their 8MB backups don't pile up in the test profile and slow every later startup
 
   // large document sorting performance
   const big = Array.from({ length: 200000 }, (_, i) => 'line ' + ((i * 7919) % 200003)).join('\n'); setText(big); const t0 = performance.now(); await run(42059); check('sort 200k lines under 5s', performance.now() - t0 < 5000, true);
