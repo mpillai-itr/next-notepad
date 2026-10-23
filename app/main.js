@@ -191,8 +191,10 @@ function createWindow() {
   win = new BrowserWindow({
     width: b.width || 1280, height: b.height || 820, ...(onScreen ? { x: b.x, y: b.y } : {}), minWidth: 640, minHeight: 400, title: 'NextGenNote',
     backgroundColor: '#ffffff', show: !process.env.NGN_HEADLESS,
-    webPreferences: { preload: path.join(ROOT, 'preload.js'), contextIsolation: true, nodeIntegration: false, sandbox: false },
+    webPreferences: { preload: path.join(ROOT, 'preload.js'), contextIsolation: true, nodeIntegration: false, sandbox: false, backgroundThrottling: !process.env.NGN_SELFTEST },
   });
+  // Selftests drive the editor with focus-dependent calls, so grab focus ourselves instead of needing a manual click.
+  if (process.env.NGN_SELFTEST) win.webContents.once('did-finish-load', () => { app.focus({ steal: true }); win.show(); win.focus(); win.webContents.focus(); });
   win.loadURL('app://host/index.html');
   if (b.maximized) win.maximize();
   if (b.fullscreen) win.setFullScreen(true);
