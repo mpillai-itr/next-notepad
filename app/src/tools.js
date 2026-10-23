@@ -236,7 +236,20 @@ async function copyFmt(kind) { const d = curDoc(); const sel = curEd().getSelect
 
 function jsonViewer() {
   let data; try { data = JSON.parse(curDoc().model.getValue()); } catch (e) { return NGN.alert('JSON Viewer', 'Invalid JSON: ' + e.message); }
-  const build = (k, v, open) => { const isObj = v && typeof v === 'object'; if (!isObj) return el('div', { style: 'padding-left:16px;font-family:var(--mono)' }, el('span', { style: 'color:var(--ui-dim)', text: k + ': ' }), el('span', { text: JSON.stringify(v) })); const d = el('details', { style: 'padding-left:12px', ...(open ? { open: '' } : {}) }, el('summary', { style: 'font-family:var(--mono)', text: `${k} ${Array.isArray(v) ? `[${v.length}]` : `{${Object.keys(v).length}}`}` })); Object.entries(v).forEach(([kk, vv]) => d.append(build(kk, vv, false))); return d; };
+  // Children are built only when a node is expanded, and in pages of 200, so a huge document opens instantly instead of creating one DOM node per value up front.
+  const PAGE = 200;
+  const build = (k, v, open) => {
+    const isObj = v && typeof v === 'object';
+    if (!isObj) return el('div', { style: 'padding-left:16px;font-family:var(--mono)' }, el('span', { style: 'color:var(--ui-dim)', text: k + ': ' }), el('span', { text: JSON.stringify(v) }));
+    const entries = Object.entries(v); let shown = 0;
+    const d = el('details', { style: 'padding-left:12px' }, el('summary', { style: 'font-family:var(--mono)', text: `${k} ${Array.isArray(v) ? `[${v.length}]` : `{${entries.length}}`}` }));
+    const more = el('div', { style: 'padding-left:16px;cursor:pointer;color:var(--ui-dim)' });
+    const fill = () => { more.remove(); entries.slice(shown, shown + PAGE).forEach(([kk, vv]) => d.append(build(kk, vv, false))); shown = Math.min(entries.length, shown + PAGE); if (shown < entries.length) { more.textContent = `… show ${Math.min(PAGE, entries.length - shown)} more (${entries.length - shown} left)`; d.append(more); } };
+    more.addEventListener('click', fill);
+    d.addEventListener('toggle', () => { if (d.open && !shown) fill(); });
+    if (open) { d.open = true; fill(); }
+    return d;
+  };
   NGN.dialog({ key: 'jsonview', title: 'JSON Viewer', width: 460, body: el('div', { style: 'max-height:60vh;overflow:auto' }, build('root', data, true)), buttons: [{ label: 'Close' }] });
 }
 

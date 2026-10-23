@@ -107,6 +107,11 @@ export async function functional() {
   { const big = JSON.stringify(Array.from({ length: 6000 }, (_, i) => ({ id: i, name: 'item ' + i, tags: ['a', 'b'], note: 'hello world hello world' })));
     setText(big); let ticks = 0; const iv = setInterval(() => ticks++, 20); await run('plugin:Data Tools|JSON to YAML'); await wait(1500); clearInterval(iv);
     check('big json->yaml converted in worker', m.getValue().startsWith('- id: 0\n  name: item 0'), true); check('UI kept ticking during big conversion', ticks > 5, true); check('big json->yaml switched language', ddoc.lang, 'yaml'); }
+  // JSON Viewer renders lazily: a 50k-element array must not create 50k DOM nodes up front
+  { setText(JSON.stringify(Array.from({ length: 50000 }, (_, i) => ({ id: i, v: [i] })))); const t = performance.now(); await run('plugin:JSON Viewer|Show JSON Viewer'); const ms = performance.now() - t; const n = document.querySelectorAll('.dlg details').length;
+    check('json viewer opens fast on 50k items', ms < 1000, true); check('json viewer renders only first page', n >= 200 && n <= 260, true);
+    const more = [...document.querySelectorAll('.dlg div')].find((d) => d.textContent.startsWith('… show')); more?.click(); check('json viewer show more adds a page', document.querySelectorAll('.dlg details').length >= 400, true);
+    document.querySelectorAll('.dlg .x').forEach((x) => x.click()); }
 
   }
   // function list
