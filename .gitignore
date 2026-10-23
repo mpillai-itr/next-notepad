@@ -12,3 +12,6 @@ npm-debug.log*
 *.pem
 *.key
 release/
+
+# Claude Code per-user settings
+.claude/settings.local.json
