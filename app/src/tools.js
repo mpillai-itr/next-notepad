@@ -9,6 +9,36 @@ const ngn = window.ngn;
 const LF = monaco.editor.EndOfLinePreference.LF;
 const edit = (ed, pairs) => { ed.pushUndoStop(); ed.executeEdits('tool', pairs.map(([range, text]) => ({ range, text }))); ed.pushUndoStop(); };
 
+// Data Tools transforms: small inputs run inline (instant, one undo step); big ones go to a worker so the UI never freezes.
+// A transform that rewrites the whole document also switches its language (JSON to YAML leaves a YAML document, not JSON).
+const DT_WORKER_MIN = 200 * 1024;
+let dtWorker, dtSeq = 0; const dtPending = new Map();
+const dtRun = (op, args, text) => new Promise((resolve, reject) => {
+  if (!dtWorker) {
+    dtWorker = new Worker('app://host/dist/datatools.worker.js');
+    dtWorker.onmessage = ({ data: { id, text: out, error } }) => { const p = dtPending.get(id); dtPending.delete(id); error ? p.reject(new Error(error)) : p.resolve(out); };
+    dtWorker.onerror = (e) => { dtPending.forEach((p) => p.reject(new Error(e.message))); dtPending.clear(); dtWorker.terminate(); dtWorker = null; };
+  }
+  const id = ++dtSeq; dtPending.set(id, { resolve, reject }); dtWorker.postMessage({ id, op, args, text });
+});
+const DT_LANG = { jsonToYaml: 'yaml', yamlToJson: 'json' };
+function mapDT(op, ...args) {
+  const ed = curEd(), m = ed.getModel(), doc = curDoc(); const full = m.getFullModelRange();
+  const sels = ed.getSelections().map((s) => (s.isEmpty() ? full : s));
+  const texts = sels.map((r) => m.getValueInRange(r));
+  const wholeDoc = sels.length === 1 && sels[0].equalsRange(full);
+  const finish = (outs) => { edit(ed, sels.map((r, i) => [r, outs[i]])); if (wholeDoc && DT_LANG[op]) NGN.setLanguage(doc, DT_LANG[op]); };
+  if (texts.reduce((n, t) => n + t.length, 0) < DT_WORKER_MIN) {
+    try { finish(texts.map((t) => DT[op](t, ...args))); } catch (e) { NGN.toast('Error: ' + e.message); }
+    return;
+  }
+  const ver = m.getVersionId(); NGN.toast('Converting…', 60000);
+  return Promise.all(texts.map((t) => dtRun(op, args, t))).then((outs) => {
+    if (m.isDisposed() || m.getVersionId() !== ver) return NGN.toast('Document changed while converting — cancelled');
+    finish(outs); NGN.toast('Done');
+  }).catch((e) => NGN.toast('Error: ' + e.message));
+}
+
 // ---- hashes ---------------------------------------------------------------------------------------------------
 NGN.hashDialog = (algo, name, mode) => {
   const out = el('textarea', { rows: 8, readonly: true, style: 'width:100%;font-family:var(--mono)' });
@@ -164,10 +194,10 @@ const PLUG = {
   'JSON Viewer|Compress JSON': () => mapSel((t) => JSON.stringify(JSON.parse(t))), 'JsonTools|Compress current JSON file': () => mapSel((t) => JSON.stringify(JSON.parse(t))),
   'JsonTools|Validate JSON': () => { try { JSON.parse(curDoc().model.getValue()); NGN.toast('Valid JSON ✔'); } catch (e) { NGN.alert('JSON error', e.message); } },
   'JsonTools|Sort object keys': () => mapSel((t) => { const sort = (v) => (Array.isArray(v) ? v.map(sort) : v && typeof v === 'object' ? Object.fromEntries(Object.keys(v).sort().map((k) => [k, sort(v[k])])) : v); return JSON.stringify(sort(JSON.parse(t)), null, 2); }),
-  'Data Tools|Pretty print (2 spaces)': () => mapSel((t) => DT.jsonFormat(t, 2)), 'Data Tools|Pretty print (4 spaces)': () => mapSel((t) => DT.jsonFormat(t, 4)),
-  'Data Tools|Minify JSON': () => mapSel(DT.jsonMinify), 'Data Tools|Sort keys (JSON)': () => mapSel(DT.jsonSortKeys),
+  'Data Tools|Pretty print (2 spaces)': () => mapDT('jsonFormat', 2), 'Data Tools|Pretty print (4 spaces)': () => mapDT('jsonFormat', 4),
+  'Data Tools|Minify JSON': () => mapDT('jsonMinify'), 'Data Tools|Sort keys (JSON)': () => mapDT('jsonSortKeys'),
   'Data Tools|Escape JSON': () => mapSel(DT.jsonEscape), 'Data Tools|Unescape JSON': () => mapSel(DT.jsonUnescape),
-  'Data Tools|JSON to YAML': () => mapSel(DT.jsonToYaml), 'Data Tools|YAML to JSON': () => mapSel(DT.yamlToJson), 'Data Tools|Sort keys (YAML)': () => mapSel(DT.yamlSortKeys),
+  'Data Tools|JSON to YAML': () => mapDT('jsonToYaml'), 'Data Tools|YAML to JSON': () => mapDT('yamlToJson'), 'Data Tools|Sort keys (YAML)': () => mapDT('yamlSortKeys'),
   'Data Tools|Base64 Encode (UTF-8)': () => mapSel(DT.b64Encode), 'Data Tools|Base64 Decode (UTF-8)': () => mapSel(DT.b64Decode),
 };
 NGN.runPlugin = (key) => { if (S.prefs.disabledPlugins.includes(key.split('|')[0])) return NGN.toast('Plugin disabled in Plugins Admin.'); const f = PLUG[key]; if (f) f(); else NGN.toast('Unknown plugin command'); };

@@ -8,6 +8,7 @@ const ctx = await esbuild.context({
     'json.worker': `${M}/language/json/json.worker.js`,
     'css.worker': `${M}/language/css/css.worker.js`,
     'html.worker': `${M}/language/html/html.worker.js`,
+    'datatools.worker': 'src/datatools.worker.js',
     'ts.worker': `${M}/language/typescript/ts.worker.js`,
   },
   bundle: true, format: 'iife', outdir: 'dist', minify: false, sourcemap: false,

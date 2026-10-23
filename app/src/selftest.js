@@ -102,6 +102,12 @@ export async function functional() {
   setText('héllo ✓'); await dt('Base64 Encode (UTF-8)'); check('data tools b64 encode', m.getValue(), 'aMOpbGxvIOKckw=='); await dt('Base64 Decode (UTF-8)'); check('data tools b64 decode', m.getValue(), 'héllo ✓');
   setText('{"a":'); await dt('Minify JSON'); check('data tools invalid json untouched', m.getValue(), '{"a":');
   setText('x'); await dt('Base64 Encode (UTF-8)'); ed.trigger('t', 'undo'); check('data tools undo', m.getValue(), 'x');
+  // whole-document JSON<->YAML conversion switches the language; big inputs convert in a worker without freezing the UI
+  ddoc.lang = 'json'; setText('{"a":1}'); await dt('JSON to YAML'); check('json->yaml switches language to yaml', ddoc.lang, 'yaml'); await dt('YAML to JSON'); check('yaml->json switches language to json', ddoc.lang, 'json');
+  { const big = JSON.stringify(Array.from({ length: 6000 }, (_, i) => ({ id: i, name: 'item ' + i, tags: ['a', 'b'], note: 'hello world hello world' })));
+    setText(big); let ticks = 0; const iv = setInterval(() => ticks++, 20); await run('plugin:Data Tools|JSON to YAML'); await wait(1500); clearInterval(iv);
+    check('big json->yaml converted in worker', m.getValue().startsWith('- id: 0\n  name: item 0'), true); check('UI kept ticking during big conversion', ticks > 5, true); check('big json->yaml switched language', ddoc.lang, 'yaml'); }
+
   }
   // function list
   const py = NGN.createDoc({ text: 'import os\n\ndef alpha(x):\n    pass\n\nclass K:\n    def beta(self):\n        pass\n', name: 'p.py', lang: 'python', activate: true }); const fl = await NGN.parseFunctions(py); check('function list (python)', fl.map((f) => f.name), ['alpha(x)', 'K', 'beta(self)']);
