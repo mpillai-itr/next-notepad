@@ -708,6 +708,11 @@ Legend: ✅ implemented · 🔁 adapted to macOS (see note) · ◐ partial/appro
 - ✅ Preferences (6000): 22 categories mirroring dialogs 6010–7160 (General, Editing, Dark Mode, Margins, New Document, Default Directory, Recent Files, File Association, Language, Indentation, Highlighting, Print, Searching, Backup, Auto-Completion, Multi-Instance & Date, Delimiter, Performance, Cloud & Link, Search Engine, MISC, Updater)
 - 🔁 User Defined Language (20000–26000): name, extensions, 4 keyword groups, line/block comments, import/export; not the full 8-group/delimiter matrix
 - 🔁 Plugins Admin (5500): lists the five bundled re-implementations (MIME Tools, Converter, NppExport, JSON Viewer, JsonTools)
+- ✅ **Data Tools** plugin (Plugins ▸ Data Tools), an addition not present in the original; every command works on the selection, or the whole document when nothing is selected, and is one undo step:
+  - JSON: Pretty print (2 spaces) / (4 spaces), Minify JSON, Sort keys (JSON, recursive, 2-space output), Escape JSON / Unescape JSON (string-literal escaping, no outer quotes)
+  - YAML: JSON to YAML, YAML to JSON (first document only, aliases resolved, comments dropped), Sort keys (YAML)
+  - Base64 Encode / Decode (UTF-8): padded output, decode accepts whitespace, URL-safe alphabet and missing padding
+  - Invalid input shows an error toast and leaves that selection unchanged
 
 ## Data files reused as-is from the install
 

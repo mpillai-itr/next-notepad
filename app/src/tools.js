@@ -1,5 +1,6 @@
 // Tools: hashes, column editor, summary, windows list, run dialog, macros, plugins, print, about/debug.
 import { monaco, activateDoc, closeDoc, closeMany, saveDoc, isDirty, docEol, renderTabs } from './core.js';
+import * as DT from './datatools.js';
 import { S, NGN, curEd, curDoc } from './state.js';
 import { LANGS } from './languages.js';
 
@@ -163,6 +164,11 @@ const PLUG = {
   'JSON Viewer|Compress JSON': () => mapSel((t) => JSON.stringify(JSON.parse(t))), 'JsonTools|Compress current JSON file': () => mapSel((t) => JSON.stringify(JSON.parse(t))),
   'JsonTools|Validate JSON': () => { try { JSON.parse(curDoc().model.getValue()); NGN.toast('Valid JSON ✔'); } catch (e) { NGN.alert('JSON error', e.message); } },
   'JsonTools|Sort object keys': () => mapSel((t) => { const sort = (v) => (Array.isArray(v) ? v.map(sort) : v && typeof v === 'object' ? Object.fromEntries(Object.keys(v).sort().map((k) => [k, sort(v[k])])) : v); return JSON.stringify(sort(JSON.parse(t)), null, 2); }),
+  'Data Tools|Pretty print (2 spaces)': () => mapSel((t) => DT.jsonFormat(t, 2)), 'Data Tools|Pretty print (4 spaces)': () => mapSel((t) => DT.jsonFormat(t, 4)),
+  'Data Tools|Minify JSON': () => mapSel(DT.jsonMinify), 'Data Tools|Sort keys (JSON)': () => mapSel(DT.jsonSortKeys),
+  'Data Tools|Escape JSON': () => mapSel(DT.jsonEscape), 'Data Tools|Unescape JSON': () => mapSel(DT.jsonUnescape),
+  'Data Tools|JSON to YAML': () => mapSel(DT.jsonToYaml), 'Data Tools|YAML to JSON': () => mapSel(DT.yamlToJson), 'Data Tools|Sort keys (YAML)': () => mapSel(DT.yamlSortKeys),
+  'Data Tools|Base64 Encode (UTF-8)': () => mapSel(DT.b64Encode), 'Data Tools|Base64 Decode (UTF-8)': () => mapSel(DT.b64Decode),
 };
 NGN.runPlugin = (key) => { if (S.prefs.disabledPlugins.includes(key.split('|')[0])) return NGN.toast('Plugin disabled in Plugins Admin.'); const f = PLUG[key]; if (f) f(); else NGN.toast('Unknown plugin command'); };
 
@@ -205,7 +211,7 @@ function jsonViewer() {
 }
 
 NGN.openPluginsAdmin = async () => {
-  const defs = await (await fetch('app://host/plugins.json')).json(); const info = { 'MIME Tools': 'v3.1', Converter: 'v4.7', NppExport: 'v0.4', 'JSON Viewer': '(plugins/NPPJSONViewer)', JsonTools: '(plugins/JsonTools)' };
+  const defs = await (await fetch('app://host/plugins.json')).json(); const info = { 'MIME Tools': 'v3.1', Converter: 'v4.7', NppExport: 'v0.4', 'JSON Viewer': '(plugins/NPPJSONViewer)', JsonTools: '(plugins/JsonTools)', 'Data Tools': 'built-in' };
   const rows = defs.map((p) => { const cb = el('input', { type: 'checkbox', checked: !S.prefs.disabledPlugins.includes(p.name) }); cb.addEventListener('change', () => { S.prefs.disabledPlugins = cb.checked ? S.prefs.disabledPlugins.filter((x) => x !== p.name) : [...S.prefs.disabledPlugins, p.name]; NGN.saveCfgSoon(); }); return el('tr', {}, el('td', {}, cb), el('td', { text: p.name }), el('td', { text: info[p.name] || '' }), el('td', { text: p.commands.filter((c) => c !== '-').length + ' commands' })); });
   NGN.dialog({ key: 'plugadmin', title: 'Plugins Admin', width: 540, body: el('div', {}, el('table', {}, el('tr', {}, ['Enabled', 'Plugin', 'Version', 'Provides'].map((h) => el('th', { text: h }))), rows), el('p', { style: 'color:var(--ui-dim)', text: 'The original loads native Windows plugin DLLs. On macOS these five bundled plugins are re-implemented natively; third-party .dll plugins cannot be loaded.' })), buttons: [{ label: 'Close' }] });
 };
@@ -236,6 +242,6 @@ NGN.openAbout = () => NGN.dialog({ key: 'about', title: 'About NextGenNote', wid
   el('p', { style: 'color:var(--ui-dim)', text: `Electron ${S.paths.electron} · Chromium ${S.paths.chrome} · Node ${S.paths.node}` }),
   el('p', { text: 'Licensed GPL-3.0-or-later (bundles Notepad++ data files: themes, language definitions, auto-completion & function-list rules).' })), buttons: [{ label: 'OK', primary: true }] });
 NGN.openDebugInfo = () => {
-  const text = [`NextGenNote Debug Info`, `Build: Electron ${S.paths.electron}, Chromium ${S.paths.chrome}, Node ${S.paths.node}`, `Platform: ${S.paths.platform}`, `Config dir: ${S.paths.userData}`, `Open documents: ${S.docs.size}`, `Active language: ${curDoc()?.lang}`, `Encoding: ${curDoc()?.enc}`, `Theme: ${S.prefs.theme}`, `Dark mode: ${S.prefs.darkMode}`, `Plugins: ${['MIME Tools', 'Converter', 'NppExport', 'JSON Viewer', 'JsonTools'].filter((p) => !S.prefs.disabledPlugins.includes(p)).join(', ')}`].join('\n');
+  const text = [`NextGenNote Debug Info`, `Build: Electron ${S.paths.electron}, Chromium ${S.paths.chrome}, Node ${S.paths.node}`, `Platform: ${S.paths.platform}`, `Config dir: ${S.paths.userData}`, `Open documents: ${S.docs.size}`, `Active language: ${curDoc()?.lang}`, `Encoding: ${curDoc()?.enc}`, `Theme: ${S.prefs.theme}`, `Dark mode: ${S.prefs.darkMode}`, `Plugins: ${['MIME Tools', 'Converter', 'NppExport', 'JSON Viewer', 'JsonTools', 'Data Tools'].filter((p) => !S.prefs.disabledPlugins.includes(p)).join(', ')}`].join('\n');
   NGN.dialog({ key: 'debuginfo', title: 'Debug Info', width: 520, body: el('pre', { text }), buttons: [{ label: 'Copy debug info to clipboard', stay: true, fn: () => ngn.clip.writeText(text) }, { label: 'OK', primary: true }] });
 };

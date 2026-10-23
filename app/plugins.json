@@ -3,5 +3,6 @@
   { "name": "Converter", "commands": ["ASCII -> HEX", "HEX -> ASCII", "-", "Conversion Panel..."] },
   { "name": "NppExport", "commands": ["Export to RTF", "Export to HTML", "-", "Copy RTF to clipboard", "Copy HTML to clipboard", "Copy all formats to clipboard"] },
   { "name": "JSON Viewer", "commands": ["Show JSON Viewer", "Format JSON", "Compress JSON"] },
-  { "name": "JsonTools", "commands": ["Pretty-print current JSON file", "Compress current JSON file", "Validate JSON", "Sort object keys", "Open tree viewer"] }
+  { "name": "JsonTools", "commands": ["Pretty-print current JSON file", "Compress current JSON file", "Validate JSON", "Sort object keys", "Open tree viewer"] },
+  { "name": "Data Tools", "commands": ["Pretty print (2 spaces)", "Pretty print (4 spaces)", "Minify JSON", "Sort keys (JSON)", "-", "Escape JSON", "Unescape JSON", "-", "JSON to YAML", "YAML to JSON", "Sort keys (YAML)", "-", "Base64 Encode (UTF-8)", "Base64 Decode (UTF-8)"] }
 ]

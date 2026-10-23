@@ -87,6 +87,22 @@ export async function functional() {
   r = await ngn.findInFiles({ dir, filters: '*.*', recursive: true, hidden: true, regex: 'needle', flags: 'gi' }); check('find in files (hidden folders)', r.hits, 5);
   r = await ngn.findInFiles({ dir, filters: '*.* !*.log', recursive: false, hidden: false, regex: 'needle', flags: 'gi' }); check('find in files exclude filter', r.files, 1);
   r = await ngn.findInFiles({ dir, filters: 'g1.txt', recursive: false, hidden: false, regex: 'needle', flags: 'gi', replaceWith: 'pin', apply: true }); check('replace in files', (await ngn.file.read(dir + '/g1.txt')).text, 'pin here\nno\npin again\n');
+  // Data Tools plugin (JSON / YAML / Base64)
+  { // fresh document so earlier file-IO tests (which switch the active document) cannot interfere
+  const ddoc = NGN.createDoc({ text: '', name: 'dt.txt', activate: true }); await wait(50); const ed = curEd(); const m = ddoc.model;
+  const setText = (t) => { m.setValue(t); ed.setSelection(m.getFullModelRange()); };
+  const run = async (id) => { ed.focus(); await NGN.runCommand(id); await wait(20); };
+  const dt = async (cmd) => run('plugin:Data Tools|' + cmd);
+  setText('{"b":1,"a":{"d":1,"c":2}}'); await dt('Pretty print (4 spaces)'); check('data tools pretty 4', m.getValue(), '{\n    "b": 1,\n    "a": {\n        "d": 1,\n        "c": 2\n    }\n}');
+  await dt('Minify JSON'); check('data tools minify', m.getValue(), '{"b":1,"a":{"d":1,"c":2}}');
+  await dt('Sort keys (JSON)'); check('data tools sort json', m.getValue().replace(/\s+/g, ''), '{"a":{"c":2,"d":1},"b":1}');
+  setText('{"a":"x"}'); await dt('Escape JSON'); check('data tools escape', m.getValue(), '{\\"a\\":\\"x\\"}'); await dt('Unescape JSON'); check('data tools unescape', m.getValue(), '{"a":"x"}');
+  setText('{"name":"app","ports":[80,443]}'); await dt('JSON to YAML'); check('data tools json->yaml', m.getValue(), 'name: app\nports:\n  - 80\n  - 443\n');
+  setText('b: 1\na:\n  d: 1\n  c: 2\n'); await dt('Sort keys (YAML)'); check('data tools sort yaml', m.getValue(), 'a:\n  c: 2\n  d: 1\nb: 1\n'); await dt('YAML to JSON'); check('data tools yaml->json', (() => { try { return JSON.parse(m.getValue()); } catch (e) { return m.getValue(); } })(), { a: { c: 2, d: 1 }, b: 1 });
+  setText('héllo ✓'); await dt('Base64 Encode (UTF-8)'); check('data tools b64 encode', m.getValue(), 'aMOpbGxvIOKckw=='); await dt('Base64 Decode (UTF-8)'); check('data tools b64 decode', m.getValue(), 'héllo ✓');
+  setText('{"a":'); await dt('Minify JSON'); check('data tools invalid json untouched', m.getValue(), '{"a":');
+  setText('x'); await dt('Base64 Encode (UTF-8)'); ed.trigger('t', 'undo'); check('data tools undo', m.getValue(), 'x');
+  }
   // function list
   const py = NGN.createDoc({ text: 'import os\n\ndef alpha(x):\n    pass\n\nclass K:\n    def beta(self):\n        pass\n', name: 'p.py', lang: 'python', activate: true }); const fl = await NGN.parseFunctions(py); check('function list (python)', fl.map((f) => f.name), ['alpha(x)', 'K', 'beta(self)']);
   // session serialisation
