@@ -366,7 +366,7 @@ export async function saveDoc(doc, { as = false, copy = false } = {}) {
     const wasUntitled = !doc.path;
     doc.path = p; doc.name = p.split('/').pop(); doc.mtime = r.mtime; doc.savedVer = doc.model.getAlternativeVersionId(); doc.forceDirty = false;
     if (doc.lang === 'normal' || as) { const nl = langForPath(p, doc.model.getLineContent(1)); if (nl !== 'normal' && (wasUntitled || as)) setLanguage(doc, nl); }
-    if (doc.untitledBackup) { ngn.file.deleteBackup(doc.untitledBackup); doc.untitledBackup = null; }
+    if (doc.untitledBackup) { ngn.file.deleteBackup(doc.untitledBackup); doc.untitledBackup = null; doc.backedUpVer = null; }
     NGN.markSaved(doc); addRecent(p); ngn.watch.add(doc.id, p);
     updateTab(doc); updateTitle(); NGN.emit('saved', doc);
     NGN.toast('Saved ' + doc.name);
@@ -480,7 +480,11 @@ export async function sessionData(forExplicitFile = false) {
       if (st) entry.vs = st;
       // Untitled tabs with content are always snapshotted, even if never edited since creation (e.g. pasted text).
       if ((isDirty(d) || (!d.path && d.model.getValueLength() > 0)) && !forExplicitFile) {
-        const file = 'doc-' + d.id + '.txt'; await ngn.file.writeBackup(file, d.model.getValue()); entry.backup = file; d.untitledBackup = d.path ? d.untitledBackup : file;
+        const file = 'doc-' + d.id + '.txt';
+        // Only rewrite the backup when the text changed since the last one; getValue() + IPC of a big document every snapshot is what made idle typing stutter.
+        const ver = d.model.getVersionId();
+        if (d.backedUpVer !== ver || d.backedUpFile !== file) { await ngn.file.writeBackup(file, d.model.getValue()); d.backedUpVer = ver; d.backedUpFile = file; }
+        entry.backup = file; d.untitledBackup = d.path ? d.untitledBackup : file;
       }
       docs.push(entry);
     }

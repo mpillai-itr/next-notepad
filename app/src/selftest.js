@@ -87,6 +87,12 @@ export async function functional() {
   r = await ngn.findInFiles({ dir, filters: '*.*', recursive: true, hidden: true, regex: 'needle', flags: 'gi' }); check('find in files (hidden folders)', r.hits, 5);
   r = await ngn.findInFiles({ dir, filters: '*.* !*.log', recursive: false, hidden: false, regex: 'needle', flags: 'gi' }); check('find in files exclude filter', r.files, 1);
   r = await ngn.findInFiles({ dir, filters: 'g1.txt', recursive: false, hidden: false, regex: 'needle', flags: 'gi', replaceWith: 'pin', apply: true }); check('replace in files', (await ngn.file.read(dir + '/g1.txt')).text, 'pin here\nno\npin again\n');
+  // find in files must not block the main process: IPC pings issued during a big scan should still be answered promptly
+  { const bd = dir + '/bigscan'; await ngn.run(`mkdir -p "${bd}" && for i in 1 2 3; do yes "the quick brown fox jumps over the lazy dog 0123456789" | head -c 40000000 > "${bd}/f$i.txt"; done; echo "quick brown fox jumps over the lazy cat" > "${bd}/hit.txt"`);
+    let maxLag = 0, stop = false; const pinger = (async () => { while (!stop) { const t = performance.now(); await ngn.file.exists(bd); maxLag = Math.max(maxLag, performance.now() - t); await wait(10); } })();
+    const t0 = performance.now(); const big = await ngn.findInFiles({ dir: bd, filters: '*.txt', recursive: false, hidden: false, regex: 'quick\\s+brown\\s+fox\\s+jumps\\s+over\\s+the\\s+lazy\\s+cat', flags: 'gi' }); const ms = performance.now() - t0; stop = true; await pinger;
+    console.log('[PERF] find in files', Math.round(ms), 'ms, scanned', big.scanned, 'max main-process IPC lag', Math.round(maxLag), 'ms');
+    check('big find-in-files result', [big.files, big.hits], [1, 1]); check('main process stays responsive during find in files (<250ms lag)', maxLag < 250, true); await ngn.run(`rm -rf "${bd}"`); }
   // Data Tools plugin (JSON / YAML / Base64)
   { // fresh document so earlier file-IO tests (which switch the active document) cannot interfere
   const ddoc = NGN.createDoc({ text: '', name: 'dt.txt', activate: true }); await wait(50); const ed = curEd(); const m = ddoc.model;
@@ -118,6 +124,14 @@ export async function functional() {
   const py = NGN.createDoc({ text: 'import os\n\ndef alpha(x):\n    pass\n\nclass K:\n    def beta(self):\n        pass\n', name: 'p.py', lang: 'python', activate: true }); const fl = await NGN.parseFunctions(py); check('function list (python)', fl.map((f) => f.name), ['alpha(x)', 'K', 'beta(self)']);
   // session serialisation
   const sess = await NGN.sessionData(); check('session has docs', sess.docs.length > 5, true);
+  // periodic snapshots must not rewrite documents that haven't changed since the last snapshot
+  { const text = 'x'.repeat(79) + '\n'; const mkBig = (n) => NGN.createDoc({ text: text.repeat(n), name: 'snap' + n + '.txt', activate: false });
+    const bigs = [mkBig(100000), mkBig(100000), mkBig(100000)]; await wait(100); bigs.forEach((d) => d.model.applyEdits([{ range: new NGN.monaco.Range(1, 1, 1, 1), text: 'edit' }])); // edited, so the first snapshot must write all three
+    let t = performance.now(); await NGN.saveSession(); const first = performance.now() - t;
+    t = performance.now(); await NGN.saveSession(); const second = performance.now() - t;
+    console.log('[PERF] session snapshot, 3 x 8MB untitled docs: first', Math.round(first), 'ms, repeat with no edits', Math.round(second), 'ms');
+    check('repeat snapshot without edits is at least 3x cheaper', second * 3 < first, true); }
+
   // large document sorting performance
   const big = Array.from({ length: 200000 }, (_, i) => 'line ' + ((i * 7919) % 200003)).join('\n'); setText(big); const t0 = performance.now(); await run(42059); check('sort 200k lines under 5s', performance.now() - t0 < 5000, true);
   const bad = res.filter((r) => !r[0]); console.log('SELFTEST2 checks', res.length, 'passed', res.length - bad.length, 'failed', bad.length); bad.forEach((b) => console.log('SELFTEST2 FAIL', b[1], b[2]));
